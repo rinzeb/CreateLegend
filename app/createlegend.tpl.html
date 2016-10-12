@@ -1,0 +1,56 @@
+<md-toolbar color="primary"> Create Legend</md-toolbar>
+<md-card>
+	<md-card-content>
+		<h2>Legend information</h2>
+		<md-input placeholder="Legend id" maxlength="64" type="text" [(ngModel)]="legend.id"></md-input><br>
+		<md-input placeholder="Legend description" maxlength="64" type="text" [(ngModel)]="legend.description"></md-input><br>
+		<md-radio-group [(ngModel)]="legend.legendKind">
+			<md-radio-button value="discrete" checked="true">discrete</md-radio-button>
+			<md-radio-button value="interpolated" disabled="true">interpolated</md-radio-button>
+		</md-radio-group>
+	</md-card-content>
+</md-card>
+<br><br>
+<md-card>
+	<md-card-content>
+		<h2>Legend entries</h2>
+		<ul>
+			<li *ngFor="let le of legend.legendEntries">
+				<label for="label">Label</label>
+				<input id="label" type="text" [(ngModel)]="le.label"><br>
+				<label for="color">Color</label>
+				<input [(colorPicker)]="le.color" [style.background]="le.color" [value]="le.color" />
+				<label for="min">Minimum</label>
+				<input id="min" type="number" [(ngModel)]="le.interval.min" style="max-width:36px">
+				<label for="max">Maximum</label>
+				<input id="max" type="number" [(ngModel)]="le.interval.max" style="max-width:36px">
+				<button md-mini-fab color="warn" (click)="deleteLegendEntry(le.label)">
+                    <md-icon class="md-24" color="primary">delete</md-icon>
+                </button>
+			</li>
+			<button md-mini-fab (click)="addLegendEntry()">
+                <md-icon class="md-24" color="primary">add</md-icon>
+            </button>
+		</ul>
+	</md-card-content>
+</md-card>
+<br><br>
+<md-card>
+	<md-card-content>
+		<h2>Import / export</h2>
+        <button md-mini-fab color="primary" (click)="setLegendJSON()">
+            <md-icon class="md-24" color="primary">trending_down</md-icon>
+        </button>
+        <label>Entries to JSON</label>
+		<button md-mini-fab color="primary" (click)="parseLegendJSON()">
+            <md-icon class="md-24" color="primary">trending_up</md-icon>
+        </button>
+        <label>JSON to entries</label>
+        <button md-mini-fab color="primary" (click)="saveLegendJSON()">
+            <md-icon class="md-24" color="primary">save</md-icon>
+        </button>
+        <label>Download</label>
+		<br>
+		<textarea id="output" style="min-width:600px;min-height:300px;" [(ngModel)]="legendJSON"></textarea>
+	</md-card-content>
+</md-card>

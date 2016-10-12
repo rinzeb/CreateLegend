@@ -23,10 +23,13 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
+      '@angular/material': 'npm:@angular/material/material.umd.js',
 
       // other libraries
-      'rxjs':                      'npm:rxjs',
+      'rxjs': 'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
+      'angular2-color-picker': 'node_modules/angular2-color-picker',
+      'ng2-uploader': 'node_modules/ng2-uploader'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -40,7 +43,11 @@
       'angular-in-memory-web-api': {
         main: './index.js',
         defaultExtension: 'js'
-      }
+      },
+      'angular2-color-picker': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      }    
     }
   });
 })(this);

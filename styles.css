@@ -136,7 +136,14 @@ nav a.router-link-active {
   border-radius: 4px 0 0 4px;
 }
 
-/* everywhere else */
-* { 
-  font-family: Arial, Helvetica, sans-serif; 
+li {
+  margin: 0px 0px 4px 0px;
+}
+
+md-card-content {
+  font-size: 18px !important;
+}
+
+button {
+  margin: 0 0 4px 6px !important;
 }
